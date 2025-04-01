@@ -4,7 +4,7 @@ import React from "react";
 import { Form, Input, Button } from "@heroui/react";
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { SignupFormInputs } from "@/interface/SignupFormInputs";
+import { SignupFormInputs } from "@/interfaces/auth";
 import { registerUser } from "@/Services/authServices";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
@@ -53,7 +53,7 @@ export default function SignupComponent() {
         control={control}
         name="name"
         rules={{
-          required: { value: true, message: "Your name is required" },
+          required: { value: true, message: "Su nombre es requerido" },
         }}
         render={({ field, fieldState: { error } }) => (
           <Input
@@ -61,9 +61,9 @@ export default function SignupComponent() {
             isRequired
             isInvalid={!!error}
             errorMessage={error?.message}
-            label="Name"
+            label="Nombre"
             labelPlacement="outside"
-            placeholder="Enter your name"
+            placeholder="Ingrese su nombre"
           />
         )}
       />
@@ -72,21 +72,21 @@ export default function SignupComponent() {
         control={control}
         name="email"
         rules={{
-          required: { value: true, message: "Email is required" },
+          required: { value: true, message: "Su correo electrónico es requerido" },
           pattern: {
             value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-            message: "Ingrese un email válido"
+            message: "Ingrese un correo electrónico válido"
           }
-        }}
+        }} 
         render={({ field, fieldState: { error } }) => (
           <Input
             {...field}
             isRequired
             isInvalid={!!error}
             errorMessage={error?.message}
-            label="Email"
+            label="Correo electrónico"
             labelPlacement="outside"
-            placeholder="Enter your email"
+            placeholder="Ingrese su correo electórnico"
           />
         )}
       />
@@ -95,7 +95,7 @@ export default function SignupComponent() {
         control={control}
         name="phone"
         rules={{
-          required: { value: true, message: "Phone is required" },
+          required: { value: true, message: "Su móvil es requerido" },
         }}
         render={({ field, fieldState: { error } }) => (
           <Input
@@ -103,9 +103,9 @@ export default function SignupComponent() {
             isRequired
             isInvalid={!!error}
             errorMessage={error?.message} // ✅ Hero UI usa `errorMessage`
-            label="Phone"
+            label="Número de móvil"
             labelPlacement="outside"
-            placeholder="Enter your phone"
+            placeholder="Ingrese su móvil"
           />
         )}
 
@@ -114,7 +114,7 @@ export default function SignupComponent() {
         control={control}
         name="address"
         rules={{
-          required: { value: true, message: "Your address is required" },
+          required: { value: true, message: "Su dirección es requerida" },
         }}
         render={({ field, fieldState: { error } }) => (
           <Input
@@ -122,9 +122,9 @@ export default function SignupComponent() {
             isRequired
             isInvalid={!!error}
             errorMessage={error?.message} // ✅ Hero UI usa `errorMessage`
-            label="Address"
+            label="Dirección"
             labelPlacement="outside"
-            placeholder="Enter your address"
+            placeholder="Ingrese su dirección"
           />
         )}
       />
@@ -134,14 +134,14 @@ export default function SignupComponent() {
         control={control}
         name="password"
         rules={{
-          required: { value: true, message: "Password is required" },
+          required: { value: true, message: "La contrasena es requerida" },
           minLength: { value: 8, message: "Debe tener al menos 8 caracteres" },
           maxLength: { value: 16, message: "No debe superar los 16 caracteres" },
           pattern: {
             value:
               /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$/,
             message:
-              "Debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial",
+              "La contraseña debe tener al menos 8 caracteres, una letre mayúscula o minúscula, un número y un carácter especial.",
           },
         }}
         render={({ field, fieldState: { error } }) => (
@@ -150,9 +150,9 @@ export default function SignupComponent() {
             isRequired
             isInvalid={!!error}
             errorMessage={error?.message}
-            label="Password"
+            label="Contraseña"
             labelPlacement="outside"
-            placeholder="Enter your password"
+            placeholder="Ingrese su contraseña"
             type="password"
           />
         )}
@@ -160,10 +160,10 @@ export default function SignupComponent() {
 
       <div className="flex gap-2 mt-2">
         <Button color="primary" type="submit">
-          Submit
+          Enviar
         </Button>
         <Button type="reset" variant="flat">
-          Reset
+         Borrar
         </Button>
       </div>
 

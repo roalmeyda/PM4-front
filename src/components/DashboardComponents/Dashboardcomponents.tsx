@@ -1,6 +1,6 @@
 "use client"
 import { getOrdersService } from '@/Services/orderServices';
-import { OrderInterface } from '@/interface/orderInterface';
+import { Order } from '@/interfaces/order';
 // import React, { useEffect, useState } from 'react'
 import useUserDataStore from '@/store';
 import { useEffect, useState } from 'react';
@@ -10,13 +10,15 @@ import { useEffect, useState } from 'react';
 function Dashboardcomponents() {
     // const router = useRouter();
     const { userData } = useUserDataStore();
-    const [orders, setOrders]  = useState<OrderInterface[]>([]);
+    const [orders, setOrders]  = useState<Order[]>([]);
+    // const router = useRouter();
 
     const getOrders = async () => {
         try {
             const orders = await getOrdersService(userData.token);
             setOrders(orders)
             console.log("ordenes:",orders);
+            
         } catch (error) {
             throw new Error((error as Error).message);
 
@@ -26,6 +28,7 @@ function Dashboardcomponents() {
 useEffect (() =>{
     if(userData.token !== ""){
         getOrders();
+        // router.push('/dashboard');
 
     }
    

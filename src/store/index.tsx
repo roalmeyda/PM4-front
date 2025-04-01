@@ -1,9 +1,9 @@
 import { create } from "zustand";
 import { devtools, persist, createJSONStorage } from "zustand/middleware";
-import { userDataInterface, EcommerceDataStoreInterface } from "@/interface/EcommerceDataStoreInterface";
-import { Iproduct } from "@/interface/product.interface";
+import { UserData, EcommerceStore } from "@/interfaces/ecommerce-store";
+import { Product } from "@/interfaces/product";
 
-const useUserDataStore = create<EcommerceDataStoreInterface>()(
+const useUserDataStore = create<EcommerceStore>()(
     devtools(
         persist(
             (set) => ({
@@ -18,8 +18,8 @@ const useUserDataStore = create<EcommerceDataStoreInterface>()(
                     token: "",
                 },
                 cart: [],
-                setUserData: (data: userDataInterface) => set({ userData: data }),
-                setCart: (data: Iproduct[]) => set({ cart: data }),
+                setUserData: (data: UserData) => set({ userData: data }),
+                setCart: (data: Product[]) => set({ cart: data }),
 
             }),
             {

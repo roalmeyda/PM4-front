@@ -10,8 +10,7 @@ interface PageProps {
 export default async function Product({params}:PageProps) {
     const resolvedParams = await params;
     const product = await getProductById(resolvedParams.productID[0])
-    console.log("Producto: ",resolvedParams.productID);
-    
+      
   return <ProductDetail product={product} key={product?.id}/>
   
   

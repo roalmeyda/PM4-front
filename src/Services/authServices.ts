@@ -1,5 +1,4 @@
-import { SignupFormInputs } from "@/interface/SignupFormInputs";
-import { LoginFormInputs } from "@/interface/LoginFormInputs";
+import { SignupFormInputs, LoginFormInputs} from "@/interfaces/auth";
 import { apiUrl } from "./config";
 
 

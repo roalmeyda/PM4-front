@@ -1,6 +1,6 @@
-import { Iproduct } from "@/interface/product.interface";
+import { Product} from "@/interfaces/product";
 
-export const dataMock: Iproduct[] = [
+export const dataMock: Product[] = [
   {
     id: 1,
     name: "iPhone 11",
